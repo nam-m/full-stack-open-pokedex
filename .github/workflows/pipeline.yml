@@ -1,5 +1,5 @@
 name: Deployment pipeline
-on: 
+on:
   push:
     branches:
       - main
@@ -16,5 +16,7 @@ jobs:
           node-version: '20'
       - name: Install dependencies
         run: npm install
+      - name: Make sure format is followed in formatted code
+        run: npx prettier . --check
       - name: Check coding style
         run: npm run eslint
